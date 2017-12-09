@@ -1,15 +1,15 @@
 {
   "name": "brill",
-  "version": "1.0.0",
-  "description": "train brill postagger for portguse",
-  "main": "templates.js",
+  "version": "0.0.1",
+  "description": "train brill postagger for portguese",
+  "main": "train.js",
   "dependencies": {
     "natural": "^0.5.4",
     "fs": "^0.0.1-security"
   },
   "devDependencies": {},
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node train.js"
   },
   "author": "",
   "license": "ISC"

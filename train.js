@@ -23,35 +23,27 @@ var templates = null;
 var trainer = null;
 var ruleSet = null;
 
-// var templateNames = ["NEXT-TAG",
-//                     "PREV-WORD-IS-CAP",
-//                     "PREV-1-OR-2-OR-3-TAG",
-//                     "PREV-1-OR-2-TAG",
-//                     "PREV-TAG",
-//                     "NEXT-WORD-IS-CAP",
-//                     "CURRENT-WORD-IS-CAP",
-//                     "CURRENT-WORD-IS-NUMBER",
-//                     "CURRENT-WORD-IS-URL",
-//                     "CURRENT-WORD-ENDS-WITH",
-//                     "PREV-WORD-IS",
-//                     "NEXT-WORD-IS",
-//                     "NEXT1OR2TAG",
-//                     "NEXT1OR2OR3TAG",
-//                     "SURROUNDTAG",
-//                     "NEXT2TAG"];
-
 var templateNames = ["NEXT-TAG",
-                    "PREV-WORD-IS-CAP"];
-
+                    "PREV-WORD-IS-CAP",
+                    "PREV-1-OR-2-OR-3-TAG",
+                    "PREV-1-OR-2-TAG",
+                    "PREV-TAG",
+                    "NEXT-WORD-IS-CAP",
+                    "CURRENT-WORD-IS-CAP",
+                    "CURRENT-WORD-IS-NUMBER",
+                    "CURRENT-WORD-IS-URL",
+                    "CURRENT-WORD-ENDS-WITH",
+                    "NEXT1OR2TAG",
+                    "NEXT1OR2OR3TAG",
+                    "SURROUNDTAG",
+                    "NEXT2TAG"];
 
 console.info('Variables setted');
 
-// var templates = templateNames.map(function(name) {
-//   return new natural.RuleTemplate(name);
-// });
-console.info('Loading Corpus.txt');
 
-var text = fs.readFileSync('./corpusjournalistic.txt', 'utf8');
+console.info('Loading Corpus');
+
+var text = fs.readFileSync('./corpus.txt', 'utf8');
 var corpus = new natural.Corpus(text, BROWN);
 
 console.info('Spliting train test corpora');
@@ -64,7 +56,7 @@ trainLexicon .setDefaultCategories("NN", "NP");
 console.info('Lexicon:');
 console.info(trainLexicon);
 
-fs.writeFileSync('pt_br-lexicon.json', JSON.stringify(trainLexicon, null, 2), 'utf-8', function (err) {
+fs.writeFileSync('pt_br-lexicon.json', JSON.stringify(trainLexicon.lexicon, null, 2), 'utf-8', function (err) {
     if (err)
         return console.log(err);
     console.log('Lexicon saved!');
